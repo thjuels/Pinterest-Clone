@@ -1,0 +1,68 @@
+/* Navbar styling */
+
+.navbar_container{
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header__logo {
+  display: flex;
+  text-decoration: none;
+  align-items: center;
+}
+.header__logo > img{
+    height: 3.2rem;
+    width: 3.2rem;
+}
+.user_nav {
+    display: flex;
+    margin-right: 70px;
+    gap: 10px;
+    width:100px;
+    height: 40px;
+    justify-content: space-around;
+}
+.search__container{
+    width: 100%;
+    margin: 0 100px 0 50px;
+}
+.search__container > input{
+    width: 100%;
+}
+.login-el, .signup-el{
+    display: flex;
+    align-items: center;
+    border-radius: 30px;
+    padding: 10px 30px;
+    color: black;
+    background-color: #e5e5e5;
+}
+.signup-el {
+    color: white;
+    background-color: #E60023;
+}
+.search-box{
+    border-radius: 20px;
+    border: none;
+    background-color: #e5e5e5;
+    padding: 10px 0px;
+    text-indent: 15px;
+}
+
+/* Pin styling */
+.all-pins{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 5px;
+}
+
+.pin{
+    border-radius: 15px;
+    background-color: #E60023;
+    width: 300px;
+}
+.pin-image {
+    width:100%;
+    border-radius: 15px;
+}

@@ -1,0 +1,24 @@
+{% load static %}
+<header class="navbar_container">
+    <div class="logo_container">
+        <a href="{% url 'home' %}" class="header__logo">
+            <img src="{% static 'images/pinterest-logo.webp' %}" />
+          </a>
+    </div>
+    <div class="search__container">
+        <input name="q" class="search-box" type="text" placeholder="Search in easy dinners, fashion, etc">
+    </div>
+    {% if request.user.is_authenticated %}
+    <div class="user_nav">
+        <a class="login-el" href="#">
+        <p>Profile</p></a>
+    </div>
+    {% else%}
+    <div class="user_nav">
+        <a class="login-el" href="#">
+        <p>Login</p></a>
+        <a class="signup-el" href="#">
+        <p>Signup</p></a>
+    </div>
+    {% endif %}
+</header>

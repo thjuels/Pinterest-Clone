@@ -1,0 +1,17 @@
+{% for pin in pins%}
+<div class="pin">
+    <div >
+        <img src="{{pin.picture.url}}" class="pin-image"/>
+    </div>
+    <div class="title">
+        <h2>{{pin.name}}</h2>
+    </div>
+    <div class="username">
+        <h4>{{pin.pinner}}</h4>
+    </div>
+    <div class="description">
+        <p>{{pin.description}}<p>
+    </div>
+
+</div>
+{% endfor %}
