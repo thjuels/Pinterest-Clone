@@ -1,3 +1,7 @@
+body {
+    background: #232524;
+}
+
 /* Navbar styling */
 
 .navbar_container{
@@ -51,18 +55,88 @@
 }
 
 /* Pin styling */
+* {
+    box-sizing: border-box;
+    font-size: 22px;
+    font-family: "Helvetica", sans-serif;
+    color: #333333;
+    margin: 0;
+    padding: 0;
+  }
+
 .all-pins{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 5px;
+    /* display: flex;
+    /* flex-direction: column; 
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px; */
+    width: 98%;
+    margin: 20px auto;
+    column-gap: 20px;
+    columns: 4;
+}
+
+.all-pins .pin{
+    /* border-radius: 15px;
+    background-color: #E60023;
+    width: 24%;
+    padding: 10px; */
+    width: 100%;
+    margin-bottom: 10px;
+    break-inside: avoid;
+    transition: opacity 0.2s ease;
+}
+.all-pins .pin img {
+    /* width:100%;
+    border-radius: 15px; */
+    max-width: 100%;
+    border-radius: 15px;
+}
+
+.title, .username {
+    display: none;
+    color: #e5e5e5;
 }
 
 .pin{
-    border-radius: 15px;
-    background-color: #E60023;
-    width: 300px;
+    position: relative;
 }
-.pin-image {
-    width:100%;
-    border-radius: 15px;
+
+.title {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.username{
+    position: absolute;
+    bottom: 13px;
+    left: 13px;
+}
+
+.pin:hover{
+    img {
+    opacity: 0.3;
+    }
+    .title, .username{
+        display: initial;
+    }
+
+}
+
+@media (max-width: 1200px){
+    .all-pins {
+        width: calc(100% - 40px);
+        columns: 3;
+    }
+}
+
+@media (max-width: 768px){
+    .all-pins {
+        width: calc(100% - 40px);
+        columns: 2;
+    }
 }
