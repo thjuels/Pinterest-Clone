@@ -3,32 +3,32 @@
 {% block content%}
 
 {% if page == 'login' %}
-<div>
+<div class="sign-in">
     <form method="POST" action="">
         {% csrf_token %}
 
-        <label>Username</label>
+        <label class="text">Username</label>
         <input type="text" name="username" placeholder="Enter Username" >
 
-        <label>Password</label>
+        <label class="text">Password</label>
         <input type="password" name="password" placeholder="Enter Password" >
 
         <input type="submit" value="Login">
     </form>
-    <p>Haven't signed up yet?</p>
-    <a href="{% url 'register' %}">Sign Up</a>
+    <p class="text">Haven't signed up yet?</p>
+    <a href="{% url 'register' %}" class="text">Sign Up</a>
 </div>
 
 {% else %}
-<div>
-    <form method="POST" action="">
+<div class="signin">
+    <form method="POST" action="" class="text">
         {% csrf_token %}
         {{form.as_p}}
         
         <input type="submit" value="Register">
     </form>
-    <p>Already signed up?</p>
-    <a href="{% url 'login' %}">Login</a>
+    <p class="text">Already signed up?</p>
+    <a href="{% url 'login' %}" class="text">Login</a>
 </div>
 {% endif %}
 
