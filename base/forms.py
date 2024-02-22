@@ -12,7 +12,7 @@ class PinForm(ModelForm):
     class Meta:
         model = Pin
         fields = '__all__' #this copies all the variables in the models.py, ie: 'host', topic, etc and presents it as data
-        exclude = ['host', 'participants'] 
+        exclude = ['host', 'participants', 'pinner'] 
         
 class UserForm(ModelForm):
     class Meta:

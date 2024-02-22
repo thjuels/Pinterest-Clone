@@ -90,7 +90,7 @@ body {
     width: 98%;
     margin: 20px auto;
     column-gap: 20px;
-    columns: 4;
+    columns: 5;
 }
 
 .all-pins .pin{

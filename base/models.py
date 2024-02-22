@@ -20,8 +20,8 @@ class Tag(models.Model):
 class Pin(models.Model):
     
     pinner = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
-    name = models.CharField(max_length=200)
-    tags = models.ManyToManyField(Tag, related_name='tags', blank=True)
+    name = models.CharField(max_length=200, default="")
+    tags = models.ForeignKey(Tag, related_name='tags', on_delete=models.SET_NULL, null=True)
     description = models.TextField(null=True, blank=True)
     updated = models.DateTimeField(auto_now=True)#anytime the model is updated, it will be saved
     created = models.DateTimeField(auto_now_add=True)

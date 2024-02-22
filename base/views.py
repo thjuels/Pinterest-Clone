@@ -30,15 +30,15 @@ def loginPage(request):
         return redirect('home')
     
     if request.method == "POST":
-        email = request.POST.get('email')
+        name = request.POST.get('username')
         password = request.POST.get('password')
         
         try:
-            user = User.objects.get(email=email)
+            user = User.objects.get(name=name)
         except:
             messages.error(request, 'User does not exist')
 
-        user = authenticate(request, email=email, password=password)
+        user = authenticate(request, email=name, password=password)
 
         if user is not None:
             login(request, user)
@@ -69,20 +69,20 @@ def registerPage(request):
 def createPin(request):
     form = PinForm()
     
-    topics = Tag.objects.all()
     if request.method == 'POST':
-        topic_name = request.POST.get('Tag')
-        topic, created = Tag.objects.get_or_create(name=topic_name)
-
-        Pin.objects.create(
+        topic_name = request.POST.get('tags')
+        topic, _ = Tag.objects.get_or_create(name=topic_name)   
+    
+        newPin = Pin.objects.create(
             pinner=request.user,
             tags=topic,
             name=request.POST.get('name'),
             description=request.POST.get('description'),
-            picture = request.POST.get('picture')
+            picture = request.POST.get('picture'),
         )
+        newPin.save()
         return redirect('home')
 
-    context = {'form': form, 'topics': topics}
+    context = {'form': form}
             
     return render(request, 'base/create-pin.html', context)
