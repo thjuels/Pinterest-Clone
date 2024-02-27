@@ -51,6 +51,9 @@ def loginPage(request):
 
 def registerPage(request):
     form = CreateUserForm()
+    
+    if request.user.is_authenticated:
+        return redirect('home')
 
     if request.method == 'POST':
         form = CreateUserForm(request.POST)
@@ -68,6 +71,9 @@ def registerPage(request):
 @login_required
 def createPin(request):
     form = PinForm()
+    
+    # if not request.user.is_authenticated:
+    #     return redirect('home')
     
     if request.method == 'POST':
         topic_name = request.POST.get('tags')
